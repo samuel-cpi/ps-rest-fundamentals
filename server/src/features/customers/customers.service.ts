@@ -8,7 +8,7 @@ export function getCustomers(): Promise<Customer[]> {
   return prisma.customer.findMany();
 }
 
-export function searchCustomers(query: string): Promise<Customer[]> {
+export async function searchCustomers(query: string): Promise<Customer[]> {
   return prisma.customer.findMany({
     where: {
       OR: [
@@ -70,3 +70,4 @@ export function deleteCustomer(customerId: string): Promise<Customer | null> {
       }
     });
 }
+

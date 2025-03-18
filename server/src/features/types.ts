@@ -9,11 +9,10 @@ export const idUUIDRequestSchema = z.object({
 });
 
 export const pagingRequestSchema = z.object({
-  query: z.object({
-    take: z.coerce.number().int().positive(),
-    skip: z.coerce.number().int().nonnegative(),
-  }),
+  take: z.coerce.number().int().positive(), // Coerce to an integer and validate it's positive
+  skip: z.coerce.number().int().nonnegative(), // Coerce to an integer and validate it's non-negative
 });
+
 
 export type Item = {
   id: number;
